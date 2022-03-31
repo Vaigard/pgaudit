@@ -2546,4 +2546,3 @@ DROP USER user2;
 DROP USER user1;
 DROP ROLE auditor;
 RESET client_min_messages;
-
