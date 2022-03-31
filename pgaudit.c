@@ -490,9 +490,10 @@ object_must_be_excluded(char *objectName)
     if (objectName == NULL || auditExcludeObjects == NULL)
         return result;
 
-    char *excludeObjects = (char*) malloc(strlen(auditExcludeObjects)*sizeof(char));
-    strcpy(excludeObjects, auditExcludeObjects);
+    char *excludeObjects;
     char *name;
+    excludeObjects = (char*) malloc(strlen(auditExcludeObjects)*sizeof(char));
+    strcpy(excludeObjects, auditExcludeObjects);
     name = strtok(excludeObjects,",");
     while (name != NULL)
     {
@@ -533,7 +534,7 @@ log_audit_event(AuditEventStackItem *stackItem)
      * Skip logging if object name in exclude_objects list.
      */
     if (object_must_be_excluded(stackItem->auditEvent.objectName))
-        return
+        return;
 
     /*
      * Skip logging script statements if an extension is currently being created
