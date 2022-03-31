@@ -486,12 +486,12 @@ append_valid_csv(StringInfoData *buffer, const char *appendStr)
 static bool
 object_must_be_excluded(char *objectName)
 {
+    char *excludeObjects;
+    char *name;
     bool result = false;
     if (objectName == NULL || auditExcludeObjects == NULL)
         return result;
 
-    char *excludeObjects;
-    char *name;
     excludeObjects = (char*) malloc(strlen(auditExcludeObjects)*sizeof(char));
     strcpy(excludeObjects, auditExcludeObjects);
     name = strtok(excludeObjects,",");
