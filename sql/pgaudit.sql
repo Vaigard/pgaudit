@@ -1582,8 +1582,6 @@ SET pgaudit.exclude_objects = "extratable1,extratable2";
 
 CREATE TABLE extratable1 ();
 CREATE TABLE extratable2 ();
-SELECT * FROM extratable1;
-SELECT * FROM extratable2;
 DROP TABLE extratable1;
 DROP TABLE extratable2;
 
